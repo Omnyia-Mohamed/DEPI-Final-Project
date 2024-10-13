@@ -1,0 +1,14 @@
+---    
+    - name: Install Jenkins on top of Docker
+      docker_container:
+        name: jenkins
+        image: jenkins/jenkins
+        published_ports:
+          - "8080:8080"
+          - "5000:5000"
+        detach: true
+        restart_policy: always
+        state: started
+        volumes:
+          - jenkins_home:/var/jenkins
+

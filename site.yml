@@ -2,7 +2,9 @@
 - hosts: webservers
   become: true
   roles:
-    - deploy_docker_app
+    - setup_docker
+    - setup_jenkins
     - deploy_git
     - deploy_terraform
+    - install_kubectl
 
