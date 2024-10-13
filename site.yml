@@ -3,6 +3,6 @@
   become: true
   roles:
     - deploy_docker_app
-      #- deploy_git
+    - deploy_git
     - deploy_terraform
 
