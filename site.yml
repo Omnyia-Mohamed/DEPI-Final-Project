@@ -3,8 +3,10 @@
   become: true
   roles:
     - setup_docker
-    - setup_jenkins
+    - deploy_jenkins_container
     - deploy_git
     - deploy_terraform
     - install_kubectl
+      #- deploy_docker_app
+      #- deploy_jenkins_on_host
 

@@ -1,0 +1,16 @@
+---   
+    - name: Test Nginx response
+      uri:
+        url: http://localhost:80
+        status_code: 200
+      register: nginx_response
+
+    - name: Ensure the application is running smoothly
+      debug:
+        msg: "Nginx is up and running, and the application is accessible" 
+      when: nginx_response.status == 200
+
+    - name: Fail if the application did not respond with status 200
+      fail:
+        msg: "Application failed to start or is not accessible!"
+      when: nginx_response.status != 200
